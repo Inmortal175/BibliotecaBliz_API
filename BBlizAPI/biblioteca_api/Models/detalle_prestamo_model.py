@@ -8,4 +8,4 @@ class DetallePrestamo(models.Model):
     
     #FK
     id_prestamo = models.ForeignKey( Prestamo, on_delete=models.CASCADE, null = False, blank=False)
-    id_libro    = models.ForeignKey( Libro, on_delete=models.CASCADE, null = False, blank=False)
+    id_libro    = models.ForeignKey( Libro,related_name='detalleprestamos' ,on_delete=models.CASCADE, null = False, blank=False)
