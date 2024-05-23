@@ -10,7 +10,7 @@ class Prestamo (models.Model):
     fecha_caducidad  = models.DateField(null = False, blank = False)
     
     #foreimg keys
-    id_usuario       = models.ForeignKey(UsuarioBiblioteca, on_delete=models.CASCADE, null= False, blank=False)
+    id_usuario       = models.ForeignKey(UsuarioBiblioteca, related_name='prestamo', on_delete=models.CASCADE, null= False, blank=False)
     id_bibliotecario = models.ForeignKey(Bibliotecario, on_delete=models.CASCADE, null= False, blank=False)
     id_devolucion    = models.ForeignKey(Devolucion, on_delete=models.CASCADE, null= True, blank=True)
     
