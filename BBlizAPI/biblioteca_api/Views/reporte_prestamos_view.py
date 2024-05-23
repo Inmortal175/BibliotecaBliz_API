@@ -79,4 +79,3 @@ class ReportePrestamoModelViewSet(ModelViewSet):
                 } for dato in rows]
 
         return Response (DATA, status=status.HTTP_200_OK)
-    

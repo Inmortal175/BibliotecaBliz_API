@@ -1,0 +1,4 @@
+
+*.pyc
+
+BBlizAPI/BBlizAPI/__pycache__/
