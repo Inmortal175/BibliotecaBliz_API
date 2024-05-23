@@ -11,6 +11,8 @@ from django.db import connection
 
 from datetime import datetime
 
+# Esta clase es un Django ModelViewSet para generar un informe sobre libros prestados en función de
+# parámetros de consulta específicos.
 class ReportePrestamoModelViewSet(ModelViewSet):
     serializer_class = ReportePrestamoModelSerializer
     queryset = Prestamo.objects.all()

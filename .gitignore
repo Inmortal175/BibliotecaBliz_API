@@ -1,0 +1,5 @@
+# Ignorar la subida de la carpeta _pycache_ y archivos .pyc
+*/__pycache__/
+*.pyc
+
+BBlizAPI/BBlizAPI/__pycache__/
