@@ -6,4 +6,4 @@ class Publica (models.Model):
     
     #foreingkey
     id_editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE, null= False)
-    id_libro     = models.ForeignKey(Libro,on_delete=models.CASCADE, null= False)
+    id_libro     = models.ForeignKey(Libro, related_name='publica', on_delete=models.CASCADE, null= False)

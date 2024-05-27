@@ -27,3 +27,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             telefono=validated_data['telefono']
         )
         return user
+
+class BibliotecarioModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bibliotecario
+        fields = ['nombres', 'apellido_paterno', 'apellido_materno', 'email', 'is_active']
