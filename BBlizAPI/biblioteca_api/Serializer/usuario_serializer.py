@@ -18,3 +18,4 @@ class UsuarioCreatedSerializer(ModelSerializer):
     class Meta:
         model = UsuarioBiblioteca
         fields = '__all__'
+        
