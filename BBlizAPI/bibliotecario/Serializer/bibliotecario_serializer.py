@@ -29,6 +29,10 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 class BibliotecarioModelSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+    
+    def get_full_name(self, obj):
+        return f'{obj.apellido_paterno} {obj.apellido_materno}, {obj.nombres}'
     class Meta:
         model = Bibliotecario
-        fields = ['nombres', 'apellido_paterno', 'apellido_materno', 'email', 'is_active']
+        fields = ['nombres', 'apellido_paterno', 'apellido_materno', 'email', 'is_active', 'full_name']

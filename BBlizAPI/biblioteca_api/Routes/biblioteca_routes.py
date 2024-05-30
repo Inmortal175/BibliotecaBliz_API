@@ -9,6 +9,8 @@ from ..Views.usuario_view import UsuarioModelViewSet, CreateModelViewSet
 
 from ..Views.prestamo_view import PrestamoModelViewSet, PrestamoCreateModelViewSet
 
+from ..Views.devolucion_view import DevolucionModelViewSet
+
 from ..Views.detalle_prestamo_view import  DetallePrestamoCreateModelViewSet, DetallePrestamoModelViewSet
 
 from ..Views.reporte_usuario_view import ReporteUsuarioModelViewSet
@@ -38,9 +40,12 @@ routes.register(prefix='bibliotecario/view', basename='bibliotecario', viewset=B
 routes.register(prefix='usuario', basename='usuario', viewset=UsuarioModelViewSet)
 routes.register(prefix='create/usuario', basename='create usuario', viewset=CreateModelViewSet)
 
-#prestamo
+# prestamo
 routes.register(prefix='create/prestamo', basename='create prestamo', viewset=PrestamoCreateModelViewSet)
 routes.register(prefix='prestamo', basename='prestamo', viewset=PrestamoModelViewSet)
+
+# devolucion
+routes.register(prefix='devolucion', basename='devolucion', viewset=DevolucionModelViewSet)
 
 #detalle prestamo
 routes.register(prefix='detalle_prestamo', basename='detalle prestamo', viewset=DetallePrestamoModelViewSet)

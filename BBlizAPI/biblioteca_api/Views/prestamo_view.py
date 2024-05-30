@@ -18,6 +18,6 @@ class PrestamoModelViewSet(ModelViewSet):
     
 class PrestamoCreateModelViewSet(ModelViewSet):
     serializer_class = PrestamoCreateModelSerializer
-    http_method_names = ['post']
+    http_method_names = ['post', 'patch']
     permission_classes = [IsAuthenticated]
     queryset = Prestamo.objects.all()    
