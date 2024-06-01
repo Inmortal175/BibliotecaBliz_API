@@ -9,10 +9,10 @@ class PublicaModelSerializer(ModelSerializer):
     
     class Meta:
         model = Publica
-        fields = ['id_publica', 'editorial', 'libro']
+        fields = '__all__'
         
-    def get_editorial(self, obj):
-        return obj.id_editorial.nombre
+    # def get_editorial(self, obj):
+    #     return obj.id_editorial.nombre
     
-    def get_libro(self, obj):
-        return obj.id_libro.titulo
+    # def get_libro(self, obj):
+    #     return obj.id_libro.titulo

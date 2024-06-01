@@ -10,6 +10,7 @@ from rest_framework.filters import SearchFilter
 from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
 
+from biblioteca_api.pagination.custom_pagination import CustomPageNumberPagination
 class RegisterViewSet(ModelViewSet):
     queryset = Bibliotecario.objects.all()
     permission_classes = (IsAuthenticated,)
@@ -28,5 +29,6 @@ class BibliotecarioModelViewSet(ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ['nombres']
     permission_classes = [IsAuthenticated]
+    pagination_class = CustomPageNumberPagination
     queryset= Bibliotecario.objects.all()
     http_method_names = ['get']

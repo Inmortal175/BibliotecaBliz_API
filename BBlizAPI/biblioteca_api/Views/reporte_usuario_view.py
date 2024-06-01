@@ -31,7 +31,7 @@ class ReporteUsuarioModelViewSet(ModelViewSet):
         fecha_fin = self.request.query_params.get('fecha_fin')
         
         # Obtener el id del bibliotecario de los query_params
-        id_bibliotecario = self.request.query_params.get('id_bibliotecario')
+        bibliotecario = self.request.query_params.get('bibliotecario')
 
         # Filtrar el queryset si se proporcionan ambas fechas
         if fecha_inicio and fecha_fin:
@@ -40,7 +40,7 @@ class ReporteUsuarioModelViewSet(ModelViewSet):
             queryset = queryset.filter(fecha_creacion__range=[fecha_inicio, fecha_fin])
         
         # Filtrar el queryset por id de bibliotecario si se proporciona
-        if id_bibliotecario:
-            queryset = queryset.filter(id_bibliotecario=id_bibliotecario)
+        if bibliotecario:
+            queryset = queryset.filter(id_bibliotecario__nombres=bibliotecario)
 
         return queryset

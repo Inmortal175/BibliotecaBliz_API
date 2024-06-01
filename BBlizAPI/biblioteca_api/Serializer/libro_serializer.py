@@ -46,3 +46,7 @@ class PublicaSerializer(ModelSerializer):
         fields = ['id', 'titulo', 'genero', 'anio_publicacion', 'autor', 'editorial', 'cantidad', 'descripcion', 'prestados', 'devuelto']
 
 
+class LibroCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Libro
+        fields = '__all__'

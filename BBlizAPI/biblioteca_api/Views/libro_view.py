@@ -5,15 +5,16 @@ from django.db.models import Count
 from ..pagination.custom_pagination import CustomPageNumberPagination
 from rest_framework.filters import SearchFilter
 
-from ..Serializer.libro_serializer import  PublicaSerializer, Publica
+from ..Serializer.libro_serializer import  PublicaSerializer, Publica, Libro, LibroCreateSerializer
 
 
 class LibroModelViewSet(ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ['id_libro__titulo', 'id_libro__id_genero__nombre', 'id_libro__id_autor__nombres']
     pagination_class = CustomPageNumberPagination
-    http_method_names = ['get']
+    http_method_names = ['get',]
     serializer_class = PublicaSerializer
+    permission_classes = [IsAuthenticated]
     queryset = Publica.objects.all()
     def get_queryset(self):
         queryset = Publica.objects.all().annotate(
@@ -37,3 +38,8 @@ class LibroModelViewSet(ModelViewSet):
             queryset = queryset.filter(id_libro__genero__icontains=genero)
 
         return queryset
+
+class LibroCreateModelViewSet(ModelViewSet):
+    serializer_class = LibroCreateSerializer
+    http_method_names = ['post', 'put', 'delete']
+    queryset = Libro.objects.all()
