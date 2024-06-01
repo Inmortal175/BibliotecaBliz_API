@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from ..Models.proveedor_model import Proveedor
+from ..Models.nacionalidad_model import Nacionalidad
 
-class ProveedorModelSerializer(ModelSerializer):
+class NacionalidadModelSerializer(ModelSerializer):
     class Meta:
-        model = Proveedor
+        model = Nacionalidad
         fields = "__all__"

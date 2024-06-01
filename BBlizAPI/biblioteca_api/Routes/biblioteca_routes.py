@@ -15,12 +15,13 @@ from ..Views.reporte_usuario_view import ReporteUsuarioModelViewSet
 
 from ..Views.resporte_devoluciones_view import ReposrteDevolucionModelViewSet
 # con DefaultRouter se puede crear diferentes rutas esta vez solo usaremos esta ruta
-from ..Views.autor_view import AutorModelViewSet
+from ..Views.autor_view import AutorModelViewSet, AutorCreateModelViewSet
 from ..Views.genero_view import GeneroModelViewSet
 from ..Views.libro_view import LibroModelViewSet
 from ..Views.proveedor_view import ProveedorModelViewSet
 from ..Views.publica_view import PublicaModelViewSet
 from ..Views.nacionalidad_view import NacionalidadModelViewSet
+from ..Views.editorial_view import EditorialModelViewSet
 
 routes: DefaultRouter = DefaultRouter()
 routes.register(prefix='reporte_prestamo', basename= "reportes de prestamos de libro", viewset=ReportePrestamoModelViewSet)
@@ -43,10 +44,13 @@ routes.register(prefix='detalle_prestamo', basename='detalle prestamo', viewset=
 routes.register(prefix='detalle_prestamo/create', basename='detalle_prestamo_create', viewset=DetallePrestamoCreateModelViewSet)
 
 
+
 # Rutas para autor, genero, libro, proveedor y publica
 routes.register(prefix="autor", viewset=AutorModelViewSet)
 routes.register(prefix="genero", viewset=GeneroModelViewSet)
 routes.register(prefix="libro", viewset=LibroModelViewSet)
 routes.register(prefix="proveedor", viewset=ProveedorModelViewSet)
 routes.register(prefix="publica", viewset=PublicaModelViewSet)
-routes.register(prefix="nacionalidad", basename='nacionalidad',  viewset=NacionalidadModelViewSet)
+routes.register(prefix="nacionalidad", basename="nacionalidad", viewset=NacionalidadModelViewSet)
+routes.register(prefix="editorial", viewset=EditorialModelViewSet)
+routes.register(prefix="create/autor", basename="create_autor", viewset=AutorCreateModelViewSet)
