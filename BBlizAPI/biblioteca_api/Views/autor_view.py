@@ -20,7 +20,8 @@ class AutorCreateModelViewSet(ModelViewSet):
     queryset = Autor.objects.all()
     permission_classes = [IsAuthenticated]
     http_method_names = ['post', 'put', 'delete']
-    
+  
+  
     
     
     
