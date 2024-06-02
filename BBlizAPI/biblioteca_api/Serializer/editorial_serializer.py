@@ -1,8 +1,7 @@
-from ..Models.editorial_model import Editorial
 from rest_framework.serializers import ModelSerializer
+from ..Models.editorial_model import Editorial
 
-
-class EditorialSerializer(ModelSerializer):
+class EditorialModelSerializer(ModelSerializer):
     class Meta:
         model = Editorial
-        fields = '__all__'
+        fields = "__all__"
