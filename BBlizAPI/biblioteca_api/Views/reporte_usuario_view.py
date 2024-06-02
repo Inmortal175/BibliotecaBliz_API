@@ -6,12 +6,15 @@ from django.db.models.functions import Concat
 
 from ..Models.usuario_model import UsuarioBiblioteca
 
+from ..pagination.custom_pagination import CustomPageNumberPagination
+
 from rest_framework import filters
 from django.utils.dateparse import parse_date
 
 class ReporteUsuarioModelViewSet(ModelViewSet):
     serializer_class = RepoprteUsuarioModelSerializer
     permission_classes = [IsAuthenticated]
+    pagination_class = CustomPageNumberPagination
     http_method_names = ['get']
     
     def get_queryset(self):
