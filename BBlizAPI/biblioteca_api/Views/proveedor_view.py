@@ -10,4 +10,4 @@ class ProveedorModelViewSet(ModelViewSet):
     serializer_class = ProveedorModelSerializer
     queryset = Proveedor.objects.all()
     pagination_class = CustomPageNumberPagination
-    permission_classes = IsAuthenticated
+    permission_classes = [IsAuthenticated]
