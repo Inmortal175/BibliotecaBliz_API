@@ -14,7 +14,7 @@ class LibroModelViewSet(ModelViewSet):
     pagination_class = CustomPageNumberPagination
     http_method_names = ['get',]
     serializer_class = PublicaSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     queryset = Publica.objects.all()
     def get_queryset(self):
         queryset = Publica.objects.all().annotate(

@@ -16,6 +16,7 @@ class PublicaSerializer(ModelSerializer):
     anio_publicacion = serializers.SerializerMethodField()
     cantidad = serializers.SerializerMethodField()
     descripcion = serializers.SerializerMethodField()    
+    id_proveedor = serializers.SerializerMethodField()
     
     def get_id(self, obj):
         return obj.id_libro.id_libro
@@ -27,7 +28,7 @@ class PublicaSerializer(ModelSerializer):
         return obj.id_editorial.nombre
     
     def get_autor(self, obj):
-        return obj.id_libro.id_autor.nombres
+        return f"{obj.id_libro.id_autor.nombres} {obj.id_libro.id_autor.apellido_paterno}"
     
     def get_genero(self, obj):
         return obj.id_libro.id_genero.nombre
@@ -41,9 +42,12 @@ class PublicaSerializer(ModelSerializer):
     def get_descripcion(self, obj):
         return obj.id_libro.descripcion
     
+    def get_id_proveedor(self, obj):
+        return obj.id_libro.id_proveedor.id_proveedor
+    
     class Meta:
         model = Publica
-        fields = ['id', 'titulo', 'genero', 'anio_publicacion', 'autor', 'editorial', 'cantidad', 'descripcion', 'prestados', 'devuelto']
+        fields = ['id', 'titulo', 'genero', 'anio_publicacion', 'autor', 'editorial', 'cantidad', 'descripcion', 'prestados', 'devuelto', 'id_proveedor']
 
 
 class LibroCreateSerializer(ModelSerializer):
